@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protected
    #sign_up時に、nameカラムの操作を許可するメソッド
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email])
   end
 
 end
