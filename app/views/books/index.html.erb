@@ -12,7 +12,12 @@
 
 <!--右側（投稿一覧画面）-->
 <h1>Books</h1>
+<div>
 <% @books.each do |book| %>
-  <span><%= book.title %></span>
+  <span><%= link_to book.title, book_path(book.id) %></span>
   <span><%= book.body %></span>
+  <% if @book.user == current_user %>
+    <%= link_to "delete", book_path(@book), method: :delete %>
+  <% end %>
+</div>
 <% end %>
