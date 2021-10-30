@@ -19,5 +19,6 @@
 <% @books.each do |book| %>
   <span><%= link_to book.title, book_path(book.id) %></span>
   <span><%= book.body %></span>
+  <span><%= link_to "Edit", edit_book_path(book.id) %></span>
 </div>
 <% end %>
