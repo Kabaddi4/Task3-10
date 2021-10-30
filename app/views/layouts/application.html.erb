@@ -25,8 +25,9 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="navbar-collapse collapse" id="navbarNavDropdown" sytle>
-            <ul class="navbar-nav ml-auto">
+
             <% if user_signed_in? %>
+            <ul class="navbar-nav ml-auto">
               <li class="fas fa-link nav-link text-light">
                 <%= link_to "Home", books_path %>
               <li>
@@ -40,23 +41,26 @@
                 <!--devise/sessions#newへ移行-->
                 <%= link_to "Log out", destroy_user_session_path, method: :delete %>
               </li>
+            </ul>
             <% else %>
+            <ul class="navbar-nav ml-auto">
               <li class="fas fa-link nav-link text-light">
-                <%= link_to "Home", root_path %>
+                <%= link_to "Home", root_path, class:"fas fa-home nav-link text-light" %>
               </li>
               <li>
-                 <%= link_to "About", about_path %>
+                 <%= link_to "About", about_path, class:"fas fa-link nav-link text-light" %>
               </li>
               <li>
                 <!--devise/registrations#newへ移行-->
-                <%= link_to "Sign up", new_user_registration_path %>
+                <%= link_to "Sign up", new_user_registration_path, class:"fas fa-user-plus nav-link text-light" %>
               </li>
               <li>
                 <!--devise/sessions#newへ移行-->
-                <%= link_to "Log in", new_user_session_path %>
+                <%= link_to "Log in", new_user_session_path, class:"fas fa-sign-in-alt nav-link text-light" %>
               </li>
-            <% end %>
             </ul>
+            <% end %>
+
           </div>
         </div>
       </nav>
