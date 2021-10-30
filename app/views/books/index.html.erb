@@ -1,22 +1,13 @@
 <!--/books-->
 
-<!--左側(ユーザー情報)-->
+<!--部分テンプレート呼出-->
+<%= render 'books/list', books: @books %>
 
-
-<!--新規作成-->
-<h2>New Book</h2>
-<%= form_with model:@book, local:true do |f| %>
-  <h4>title</h4>
-  <%= f.text_field :title %>
-  <h4>opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
 
 <!--右側（投稿一覧画面）-->
 <div>
-<h1>Books</h1>
 <% @books.each do |book| %>
+<h1>Books</h1>
   <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60 %>
   <span><%= link_to book.title, book_path(book.id) %></span>
   <span><%= book.body %></span>
