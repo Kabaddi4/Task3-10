@@ -1,13 +1,24 @@
 <%#edit_user_path あと、controllerで未使用のインスタンス変数があってもエラーは出ないらしい。」%>
-<ul class="users">
-  <%= link_to "edit", edit_user_path(@userId) %>
-  <% @users.each do |user| %>
-    <li>
-      <p>image</p>
-      <%= attachment_image_tag user, :profile_image, :fill, 60, 60 %>
-      <p>name</p>
-      <%= user.name %>
-      <%= link_to user_path(user.id) %>
-    </li>
+<div class="col-md-8 offset-md-1">
+  <h2>Users</h2>
+    <%= link_to "edit", edit_user_path(@userId) %>
+    <% @users.each do |user| %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= attachment_image_tag user, :profile_image, :fill, 60, 60 %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to user_path(user.id) %></td>
+        </tr>
+      </body>
+    </table>
   <% end %>
 </ul>
+</div>

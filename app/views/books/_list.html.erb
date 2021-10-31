@@ -1,7 +1,8 @@
+<%#所謂パーセントで囲んだものを ERB　という。HTML上でrubyを使う為のシステム%>
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-<%#左上。１，Usertの引数をBook indexで上手く渡せない。２．部分テンプレートは複数作れるか。%>
+<%#左上。1.一つだけ出すにはどうすれば良いか。 1.firstメソッド%>
       <% books.each do |book| %>
       <h2>User info</h2>
         <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60 %>
@@ -17,18 +18,22 @@
             </tr>
           </tbody>
         </table>
-        <span><%= link_to "Edit", edit_book_path(book.id) %></span>
+        <div class="row"><%= link_to "Edit", edit_book_path(book.id), class:"btn btn-outline-secondary btn-block fas fa-user-cog edit_user_id" %></div>
       <% end %>
     </div>
 
 <%#左下%>
     <%= form_with model:@book, local:true do |f| %>
     <h2>New Book</h2>
+    <div class="form-group">
       <label for="book_title">title</label>
-      <%= f.text_field :title, class:"form-group" %>
+      <%= f.text_field :title, class:"form-control book_title" %>
+    </div>
+    <div class="form-group">
       <label for="book_opinion">opinion</p>
-      <%= f.text_area :body %>
-      <%= f.submit 'Create Book' %>
+      <%= f.text_area :body, class:"form-control book_body" %>
+    </div>
+    <div class="form-group"><%= f.submit 'Create Book', class:"btn btn-success" %></div>
     <% end %>
   </div>
 </div>
