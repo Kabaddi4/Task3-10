@@ -1,11 +1,21 @@
 <%#パスはuser_pathでリンクがusers/:id%>
 <%#ユーザーが投稿した本の一覧を持ってくるにはどうすれば良いか%>
-<%= render 'books/list', user: current_user %>
 
-<div class="col-md-8" offset-md-1>
- <h2>Books</h2>
-<% @books.each do |book| %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'books/list', user: current_user %>
+    <div class="col-md-8" offset-md-1>
+     <h2>Books</h2>
+
   <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>title</th>
+        <th>opinion</th>
+      </tr>
+    </thead>
+    <% @books.each do |book| %>
     <tbody>
       <tr>
         <td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60 %></br>
@@ -14,7 +24,8 @@
         <td><%= book.body %></td>
       </tr>
     </tbody>
+    <% end %>
   </table>
-<% end %>
-</div>
+  </div>
+  </div>
 </div>

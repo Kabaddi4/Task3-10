@@ -1,16 +1,25 @@
 
 <%= render 'books/list', user: current_user %>
-<h2>Book detail</h2>
-  <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60 %>
-  <p><%= @book.user.name %></p>
-  <p><%= @book.title %></p>
-  <p><%= @book.body %></p>
-  <% if @book.user == current_user %>
-  <%= link_to "Edit", edit_book_path(@book) %>
-  <%= link_to "delete", book_path(@book), method: :delete %>
-  <% end %>
-  <%#link_to edit_book_path%>
-  <%#destroyメソッド追加%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class>
+        <tbody>
+          <tr>
+            <td><%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60 %><br>
+                <%= @book.user.name %></td>
+            <td><%= @book.title %></td>
+            <td><%= @book.body %></td>
+        <% if @book.user == current_user %>
+            <td><%= link_to "Edit", edit_book_path(@book) %></td>
+            <td><%= link_to "delete", book_path(@book), method: :delete %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
-
+  <%#destroyメソッド追加%>
 <%#book_path%>
