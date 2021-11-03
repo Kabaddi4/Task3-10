@@ -1,7 +1,7 @@
 <%#所謂パーセントで囲んだものを ERB　という。HTML上でrubyを使う為のシステム%>
 
 <%#%バリデーションはここにでる%>
-
+<link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
 <div class="col-md-3">
 <%#左上。1.一つだけ出すにはどうすれば良いか。 1.firstメソッド%>
   <h2>User info</h2>
@@ -18,8 +18,9 @@
           </tr>
         </tbody>
       </table>
-      <div class="row"><%= link_to "Edit", edit_user_path(user.id), class:"btn btn-outline-secondary btn-block fas fa-user-cog edit_user_35157" %></div>
-
+      <div class=row>
+      <%= link_to "", edit_user_path(user.id), class:"btn btn-outline-secondary btn-block fas fa-user-cog edit_user" %>
+      </div>
 <%#左下%>
     <%= form_with model:@book, local:true do |f| %>
     <h2>New Book</h2>
