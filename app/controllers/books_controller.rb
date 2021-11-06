@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+  
   #books_path
   def index
     @books = Book.all
