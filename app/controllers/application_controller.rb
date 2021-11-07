@@ -9,9 +9,10 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-   #sign_up時に、nameカラムの操作を許可するメソッド
+   #sign_up時に、nameカラムの操作を許可するメソッド　↓ここがおかしいかも11/7　課題：サインアップの際にintroductionまで要求されてしまう
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email])
+    added_attrs = [:name, :email, :password, :password_confirmation]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
   end
 
 end
