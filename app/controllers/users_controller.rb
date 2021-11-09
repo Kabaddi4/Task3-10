@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    
+
 
     def index
         @users = User.all
@@ -8,9 +8,8 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @book = Book.new
-        @books = Book.where(:id == current_user.id)
-
+        #@user.オールを含んだローカル変数？　定義もしていないのに使えるとは思わな
+        @books = @user.books
     end
 
     def edit
