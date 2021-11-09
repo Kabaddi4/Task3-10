@@ -10,6 +10,8 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         #@user.オールを含んだローカル変数？　定義もしていないのに使えるとは思わな
         @books = @user.books
+        #部分テンプレートで新規投稿を行いたい場合は必ず宣言する。
+        @book = Book.new
     end
 
     def edit
