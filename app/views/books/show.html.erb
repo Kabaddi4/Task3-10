@@ -19,7 +19,7 @@
             <td><%= @book_show.body %></td>
         <% if @book_show.user == current_user %>
             <td><%= link_to "Edit", edit_book_path(@book_show), class:"btn btn-sm btn-success edit_book" %></td>
-            <td><%= link_to "delete", book_path(@book_show), class:"btn btn-sm btn-danger destroy_book" ,method: :delete%></td>
+            <td><%= link_to "Destroy", book_path(@book_show), class:"btn btn-sm btn-danger destroy_book" ,method: :delete%></td>
           </tr>
         </tbody>
         <% end %>
