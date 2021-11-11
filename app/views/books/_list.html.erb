@@ -5,7 +5,7 @@
 <div class="col-md-3">
 <%#左上。1.一つだけ出すにはどうすれば良いか。 1.firstメソッド%>
   <h2>User info</h2>
-    <%= attachment_image_tag user, :profile_image, :fill, 60, 60 %>
+    <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "current_no_image.jpg" %>
       <table class="table">
         <tbody>
           <tr></tr>
