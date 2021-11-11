@@ -4,32 +4,30 @@
 <%# #updateのフラッシュメッセージはここに%>
 <% if flash[:notice] %>
 <% end %>
-
 <div class="container px-5 px-sm-0">
   <div class="row">
     <%= render 'books/list', user: @user %>  <%#既にshowアクションにて@userを定義している為うまくいく。%>
-    <div class="col-md-8" offset-md-1>
+    <div class="col-md-8 offset-md-1">
      <h2>Books</h2>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th>title</th>
-        <th>opinion</th>
-      </tr>
-    </thead>
-    <% @books.each do |book| %>
-    <tbody>
-      <tr>
-        <td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60 %></br>
-            <%= link_to book.user.name %></td>
-        <td><%= link_to book.title, book_path(book.id) %></td>
-        <td><%= book.body %></td>
-      </tr>
-    </tbody>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>title</th>
+          <th>opinion</th>
+        </tr>
+      </thead>
+      <% @books.each do |book| %>
+      <tbody>
+        <tr>
+          <td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60 %></br>
+              <%= link_to book.user.name %></td>
+          <td><%= link_to book.title, book_path(book.id) %></td>
+          <td><%= book.body %></td>
+        </tr>
+      </tbody>
     <% end %>
-  </table>
+    </table>
   </div>
   </div>
 </div>

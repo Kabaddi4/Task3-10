@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-   #deviseの処理で使う値を設定するメソッド（この場合sign_upに nameとemailを許可する）　↓ここがおかしいかも11/7　課題：サインアップの際にintroductionまで要求されてしまう
+   #deviseの処理で使う値を設定するメソッド（この場合sign_upに nameとemailを許可する）　↓ここがおかしいかも11/7　課題：サインアップの際にintroductionまで要求されてしまう|追記：→Userモデルにて、不必要なバリデーションを実装してしまっていた。
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
   end
