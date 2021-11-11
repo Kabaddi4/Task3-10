@@ -2,6 +2,9 @@
 <%#ユーザーが投稿した本の一覧を持ってくるにはどうすれば良いか%>
 
 <%# #updateのフラッシュメッセージはここに%>
+<% if flash[:notice] %>
+<% end %>
+
 <div class="container px-5 px-sm-0">
   <div class="row">
     <%= render 'books/list', user: @user %>  <%#既にshowアクションにて@userを定義している為うまくいく。%>

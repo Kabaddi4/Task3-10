@@ -1,19 +1,25 @@
+<% if flash[:notice] %>
+<% end %>
+
 <div class="container">
   <div class="row">
-<%= render 'books/list', user: @book.user %>
+
+
+
+<%= render 'books/list', user: @book_show.user %>
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table">
         <tbody>
           <tr>
-            <td><%= link_to user_path(@book.user.id) do %> <%#@bookからuserモデルにアクセスし、そこのidカラムを取得する。恐らくうまくいっている。%>
-            <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60 %><br>
-                <%= @book.user.name %><% end %></td>
-            <td><%= @book.title %></td>
-            <td><%= @book.body %></td>
-        <% if @book.user == current_user %>
-            <td><%= link_to "Edit", edit_book_path(@book), class:"btn btn-sm btn-success edit_book" %></td>
-            <td><%= link_to "delete", book_path(@book), class:"btn btn-sm btn-danger destroy_book" ,method: :delete%></td>
+            <td><%= link_to user_path(@book_show.user.id) do %> <%#@bookからuserモデルにアクセスし、そこのidカラムを取得する。恐らくうまくいっている。%>
+            <%= attachment_image_tag @book_show.user, :profile_image, :fill, 60, 60 %><br>
+                <%= @book_show.user.name %><% end %></td>
+            <td><%= @book_show.title %></td>
+            <td><%= @book_show.body %></td>
+        <% if @book_show.user == current_user %>
+            <td><%= link_to "Edit", edit_book_path(@book_show), class:"btn btn-sm btn-success edit_book" %></td>
+            <td><%= link_to "delete", book_path(@book_show), class:"btn btn-sm btn-danger destroy_book" ,method: :delete%></td>
           </tr>
         </tbody>
         <% end %>
